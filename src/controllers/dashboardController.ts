@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { Sequelize } from "sequelize";
-import { AuthRequest } from "../middlewares/authMiddleware";
-import db from "../../models";
+import { AuthRequest } from "../middlewares/authMiddleware.js";
+import db from "../../models/index.js";
 const { ventas: Ventas, gastos: Gastos } = db;
 
 const getLineChartData = async (

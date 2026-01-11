@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { AuthRequest } from "../middlewares/authMiddleware";
-import db from "../../models";
+import { AuthRequest } from "../middlewares/authMiddleware.js";
+import db from "../../models/index.js";
 const { gastos: Gastos, ventas: Ventas, sequelize } = db;
 
 const importJson = async (req: AuthRequest, res: Response): Promise<void> => {

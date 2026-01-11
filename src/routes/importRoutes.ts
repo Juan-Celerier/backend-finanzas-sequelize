@@ -1,6 +1,6 @@
 import express from "express";
-import { importJson } from "../controllers/importController";
-import { authenticateToken } from "../middlewares/authMiddleware";
+import { importJson } from "../controllers/importController.js";
+import { authenticateToken } from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 

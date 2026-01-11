@@ -4,8 +4,8 @@ import {
   getVentas,
   updateVenta,
   deleteVenta,
-} from "../controllers/ventasController";
-import { authenticateToken } from "../middlewares/authMiddleware";
+} from "../controllers/ventasController.js";
+import { authenticateToken } from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 

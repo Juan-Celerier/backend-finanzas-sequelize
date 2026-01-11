@@ -4,8 +4,8 @@ import {
   getGastos,
   updateGasto,
   deleteGasto,
-} from "../controllers/gastosController";
-import { authenticateToken } from "../middlewares/authMiddleware";
+} from "../controllers/gastosController.js";
+import { authenticateToken } from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 

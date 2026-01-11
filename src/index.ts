@@ -2,10 +2,10 @@ import express from "express";
 import cors from "cors";
 import sequelize from "../config/database.js";
 import "dotenv/config";
-import ventasRoutes from "./routes/ventasRoutes";
-import gastosRoutes from "./routes/gastosRoutes";
-import dashboardRoutes from "./routes/dashboardRoutes";
-import importRoutes from "./routes/importRoutes";
+import ventasRoutes from "./routes/ventasRoutes.js";
+import gastosRoutes from "./routes/gastosRoutes.js";
+import dashboardRoutes from "./routes/dashboardRoutes.js";
+import importRoutes from "./routes/importRoutes.js";
 
 const app = express();
 

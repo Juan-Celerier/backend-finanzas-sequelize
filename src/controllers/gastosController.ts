@@ -1,10 +1,9 @@
 import { Request, Response } from "express";
 
 import { Op } from "sequelize";
-import { AuthRequest } from "../middlewares/authMiddleware";
-import db from "../../models";
+import { AuthRequest } from "../middlewares/authMiddleware.js";
+import db from "../../models/index.js";
 const { gastos: Gastos } = db;
-
 
 const createGasto = async (req: AuthRequest, res: Response): Promise<void> => {
   try {
@@ -29,7 +28,6 @@ const createGasto = async (req: AuthRequest, res: Response): Promise<void> => {
     res.status(500).json({ error: (error as Error).message });
   }
 };
-
 
 const getGastos = async (req: AuthRequest, res: Response): Promise<void> => {
   try {
@@ -93,7 +91,6 @@ const getGastos = async (req: AuthRequest, res: Response): Promise<void> => {
   }
 };
 
-
 const updateGasto = async (req: AuthRequest, res: Response): Promise<void> => {
   try {
     const { id } = req.params;
@@ -117,7 +114,6 @@ const updateGasto = async (req: AuthRequest, res: Response): Promise<void> => {
     res.status(500).json({ error: (error as Error).message });
   }
 };
-
 
 const deleteGasto = async (req: AuthRequest, res: Response): Promise<void> => {
   try {

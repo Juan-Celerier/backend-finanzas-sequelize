@@ -1,6 +1,6 @@
 import express from "express";
-import { getLineChartData } from "../controllers/dashboardController";
-import { authenticateToken } from "../middlewares/authMiddleware";
+import { getLineChartData } from "../controllers/dashboardController.js";
+import { authenticateToken } from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 
