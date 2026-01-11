@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import sequelize from "../config/database";
+import sequelize from "../config/database.js";
 import "dotenv/config";
 import ventasRoutes from "./routes/ventasRoutes";
 import gastosRoutes from "./routes/gastosRoutes";
