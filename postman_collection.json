@@ -1,0 +1,249 @@
+{
+  "info": {
+    "name": "Finanzas API - Sequelize",
+    "description": "Colección de Postman para el microservicio de finanzas con Sequelize",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3002",
+      "type": "string"
+    },
+    {
+      "key": "auth_token",
+      "value": "",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Crear Venta",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fecha\": \"2023-10-01\",\n  \"categoria\": \"Producto A\",\n  \"monto\": 100.50,\n  \"descripcion\": \"Venta de producto\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/ventas",
+          "host": ["{{base_url}}"],
+          "path": ["ventas"]
+        }
+      }
+    },
+    {
+      "name": "Listar Ventas",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/ventas?period=month",
+          "host": ["{{base_url}}"],
+          "path": ["ventas"],
+          "query": [
+            {
+              "key": "period",
+              "value": "month"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Actualizar Venta",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fecha\": \"2023-10-01\",\n  \"categoria\": \"Producto B\",\n  \"monto\": 150.00,\n  \"descripcion\": \"Venta actualizada\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/ventas/1",
+          "host": ["{{base_url}}"],
+          "path": ["ventas", "1"]
+        }
+      }
+    },
+    {
+      "name": "Eliminar Venta",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/ventas/1",
+          "host": ["{{base_url}}"],
+          "path": ["ventas", "1"]
+        }
+      }
+    },
+    {
+      "name": "Crear Gasto",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fecha\": \"2023-10-01\",\n  \"categoria\": \"Oficina\",\n  \"monto\": 50.00,\n  \"descripcion\": \"Gasto en oficina\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/gastos",
+          "host": ["{{base_url}}"],
+          "path": ["gastos"]
+        }
+      }
+    },
+    {
+      "name": "Listar Gastos",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/gastos?period=month",
+          "host": ["{{base_url}}"],
+          "path": ["gastos"],
+          "query": [
+            {
+              "key": "period",
+              "value": "month"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Actualizar Gasto",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fecha\": \"2023-10-01\",\n  \"categoria\": \"Transporte\",\n  \"monto\": 30.00,\n  \"descripcion\": \"Gasto actualizado\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/gastos/1",
+          "host": ["{{base_url}}"],
+          "path": ["gastos", "1"]
+        }
+      }
+    },
+    {
+      "name": "Eliminar Gasto",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/gastos/1",
+          "host": ["{{base_url}}"],
+          "path": ["gastos", "1"]
+        }
+      }
+    },
+    {
+      "name": "Dashboard Line Chart",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/dashboard/line-chart?period=month",
+          "host": ["{{base_url}}"],
+          "path": ["dashboard", "line-chart"],
+          "query": [
+            {
+              "key": "period",
+              "value": "month"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Importar JSON",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"ventas\": [\n    {\n      \"fecha\": \"2023-10-01\",\n      \"categoria\": \"Producto A\",\n      \"monto\": 100.50,\n      \"descripcion\": \"Venta importada\"\n    }\n  ],\n  \"gastos\": [\n    {\n      \"fecha\": \"2023-10-01\",\n      \"categoria\": \"Oficina\",\n      \"monto\": 50.00,\n      \"descripcion\": \"Gasto importado\"\n    }\n  ]\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/import-json",
+          "host": ["{{base_url}}"],
+          "path": ["import-json"]
+        }
+      }
+    }
+  ]
+}
