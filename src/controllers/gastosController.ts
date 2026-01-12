@@ -31,11 +31,13 @@ const createGasto = async (req: AuthRequest, res: Response): Promise<void> => {
 
 const getGastos = async (req: AuthRequest, res: Response): Promise<void> => {
   try {
-    const { period, start_date, end_date, categoria } = req.query as {
+    const { period, start_date, end_date, categoria, limit, dashboard } = req.query as {
       period?: string;
       start_date?: string;
       end_date?: string;
       categoria?: string;
+      limit?: string;
+      dashboard?: string;
     };
     const user_id = req.user?.id;
 
@@ -84,7 +86,14 @@ const getGastos = async (req: AuthRequest, res: Response): Promise<void> => {
       };
     }
 
-    const gastos = await Gastos.findAll({ where });
+    // For dashboard, limit results and order by date descending for recent items
+    const options: any = { where };
+    if (dashboard === 'true') {
+      options.limit = limit ? parseInt(limit) : 10;
+      options.order = [['fecha', 'DESC']];
+    }
+
+    const gastos = await Gastos.findAll(options);
     res.json(gastos);
   } catch (error) {
     res.status(500).json({ error: (error as Error).message });
