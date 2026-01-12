@@ -9,9 +9,15 @@ import importRoutes from "./routes/importRoutes.js";
 
 const app = express();
 
+const allowedOrigins = [process.env.CLIENT_ORIGIN || "http://localhost:5173"];
+
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) return callback(null, true);
+      return callback(new Error("CORS policy: Origin not allowed"));
+    },
     credentials: true,
   })
 );
