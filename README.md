@@ -75,6 +75,7 @@ Todos los endpoints requieren autenticación JWT en el header: `Authorization: B
 ### Dashboard
 
 - **GET /dashboard/line-chart** - Datos agregados para gráficos de línea (query param: period=day/week/month/year)
+- **GET /dashboard/summary** - Resumen de métricas (totales, balance, conteos) para un período
 
 ### Importación
 
